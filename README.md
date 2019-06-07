@@ -26,11 +26,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+  React is a javascript library created by Facebook focussed on providing a reactive user interfaces. React class components give developers
+    access to state which can temporarily hold/save data under its properties. In combination with state and React's setState method provides 
+    React with it's 'reactiveness' by rerendering whats displayed any time state is changed.
+
 - [ ] What does it mean to _think_ in react?
+
+  To think in react is to break down a project into components and their respective hierarchies. This allows data to flow from the head class component
+      with state down through imported components through props.
 
 - [ ] Describe state.
 
+  An object on a React class component that can hold data in its properties as long as it is active in the app
+
 - [ ] Describe props.
+
+  Props are passed similar to attributes in HTML on their imported component element. Inside the component itself props are passed in as a parameter that can be accessed
+      to retrieve what was passed in from its declaration.
 
 ## Project Set Up
 
