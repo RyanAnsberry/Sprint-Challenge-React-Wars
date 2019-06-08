@@ -31,8 +31,10 @@ justify-content: space-between;
 }
 
 .info-segment {
+    width: 33%;
     color: lightskyblue;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
