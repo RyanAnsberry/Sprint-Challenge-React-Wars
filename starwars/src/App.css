@@ -2,7 +2,14 @@
   text-align: center;
 }
 .Header {
+  font-size: 50px;
+  font-weight: bolder;
+  margin: 20px 0;
   color: #443e3e;
   text-shadow: 1px 1px 5px #fff;
+}
+
+footer {
+  height: 40px;
 }
 /* write your parent styles in here for your App.js */
