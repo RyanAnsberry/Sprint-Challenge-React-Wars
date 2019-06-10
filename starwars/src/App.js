@@ -2,17 +2,32 @@ import React, { Component } from 'react';
 import './App.css';
 
 import CharacterList from './components/CharacterList.js'
+import PageSelector from './components/PageSelector.js'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      nextPageURL: '',
+      prevPageURL: ''
     };
   }
 
   componentDidMount() {
     this.getCharacters('https://swapi.co/api/people/');
+  }
+
+  nextClickHandler = event => {
+    if(this.state.nextPageURL){
+      this.getCharacters(`${this.state.nextPageURL}`);
+    }
+  }
+  
+  prevClickHandler = event => {
+    if(this.state.prevPageURL){
+      this.getCharacters(`${this.state.prevPageURL}`);
+    }
   }
 
   getCharacters = URL => {
@@ -24,8 +39,7 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data);
-        this.setState({ starwarsChars: data.results });
+        this.setState({ starwarsChars: data.results, nextPageURL: data.next, prevPageURL: data.previous});
       })
       .catch(err => {
         throw new Error(err);
@@ -36,7 +50,10 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <PageSelector  nextClickHandler={this.nextClickHandler}  prevClickHandler={this.prevClickHandler} />
         <CharacterList starwarsChars={this.state.starwarsChars}/>
+        <PageSelector  nextClickHandler={this.nextClickHandler}  prevClickHandler={this.prevClickHandler} />
+        <footer></footer>
       </div>
     );
   }
